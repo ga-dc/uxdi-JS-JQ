@@ -94,6 +94,8 @@ Fill the `index.html` with this content:
 </html>
 ```
 
+> This HTML contains just a bit of content that we'll be leveraging later in this class.
+
 In the `script.js` file:
 
 ```js
@@ -125,7 +127,7 @@ var sentence = "this is a string!"
 var number = 5 + 5
 ```
 
-There are somethings happening. Let's break it down.
+There are some things happening. Let's break it down.
 
 First:
 
@@ -265,6 +267,6 @@ Cool. This is great, but we barely scratched the surface of the true power of JS
 
 If you're hungry for more check out these resources:
 
-[MDN JS Basics Tutorial](https://developer.mozilla.org/en-US/Learn/Getting_started_with_the_web/JavaScript_basics)
-[Tuts Point jQuery Tutorial](http://www.tutorialspoint.com/jquery/)
-[jQuery Documentation](https://api.jquery.com/)
+- [MDN JS Basics Tutorial](https://developer.mozilla.org/en-US/Learn/Getting_started_with_the_web/JavaScript_basics)
+- [Tuts Point jQuery Tutorial](http://www.tutorialspoint.com/jquery/)
+- [jQuery Documentation](https://api.jquery.com/)
