@@ -5,17 +5,18 @@
 - Describe what `strings` and `numbers` are as types of data.
 - Get user input using `prompt()`.
 - Explain what a function is at a high level and how to pass arguments into it.
+- Explain what jQuery is and what problems it solves
 - Load jQuery into HTML
-- Leverage jQuery to:
+- Use jQuery to:
   - Select elements in jQuery.
   - Change text in HTML using jQuery.
   - Change css properties of selected elements.
-  - Add a simple event listener.
+  - Add an event listener.
 
 ## Framing
-In the previous classes we went over HTML and CSS. Content and styling. Is that enough? How can we start to think about how things are happening with interactive web pages. Let's take a look at this browser [game](http://orteil.dashnet.org/cookieclicker/) ....
+In the previous classes we went over HTML and CSS. Content and styling. Is that enough? How can we start to think about how things are happening with interactive web pages. Let's take a look at this browser [game](http://jshawl.com/fsm/) ....
 
-## Think-Pair-Share: Identify Javascript features in Cookie Clicker.
+## Think-Pair-Share: Identify Javascript features in Super Mario
 * 3 minutes: Go look at it. Play with it. Think about what's allowing these behaviors to exist.
 * 3 minutes: Discuss and compare findings in pairs.
 * Think about what functionality the site has after it has loaded.
@@ -23,12 +24,12 @@ In the previous classes we went over HTML and CSS. Content and styling. Is that 
 
 ### Findings
 - Interactivity
-  - Click something, something happens.
-    - Like: increment Like counter.
-    - Comment: submit comment, appended to post.
+  - Press a key, something happens.
+    - Arrow Keys: move Mario.
+    - Space: Jump.
   - Javascript defines what happens on a page depending on how you interact with it.
 - No Refreshes / User Experience
-  - When I click a cookie, CC is able to increment and update the counter on the page without a hard refresh.
+  - When I move mario, he is able to increment his score without refreshing the page.
   - When I comment on a post, Facebook is able to process my new comment and render it on the page without refreshing the entire page.
   - Gives the page a much smoother user experience compared to a static page that doesn't have this sort of functionality.
 - Communication with a server
@@ -43,14 +44,18 @@ So, to sum up the main three components of front-end web development up in one w
 
 # JS: The Client-Side Programming Language of the Web
 
-- Brief history: Created in 10 days by Brendan Eyck, of Mozilla. *Not* related to Java in any way but its name.
+- Brief history: Created in 10 days by [Brendan Eich](https://twitter.com/BrendanEich).
+- *Not* related to Java in any way but its name.
   - "Java" is to "Javascript" as "ham" is to "hamster"
 
-- ST-wg: What's a programming language?
-  - What can it do that a markup language like HTML can't?
-  - It let's us do things! It lets us act on information, manipulate it, display it, pretty much whatever we want.
+## ST-wg: What's a programming language?
+
+<details>
+  <summary>What can it do that a markup language like HTML can't?</summary>
+- It let's us do things! It lets us act on information, manipulate it, display it, pretty much whatever we want.
 - Javascript enables us to do all that in a browser.
   - Using the tools you learned in the pre-work (e.g., data types, loops, functions).
+</details>
 
 ## Why is it the dominant programming language of the web?
 - Barriers to entry for learning Javascript are very low.
@@ -61,38 +66,16 @@ So, to sum up the main three components of front-end web development up in one w
 - On top of that, it's supported by all web browsers.
 - Javascript has evolved since its creation.
   - One of the biggest additions to JS was AJAX, which allows use to reload parts of a page without refreshing the entire thing (just like on Facebook). Big implications for User Experience.
-- A lot of frameworks and libraries -- like Backbone and jQuery -- have emerged that enable us to do so much more -- and do it quickly -- with Javascript.
+- A lot of frameworks and libraries -- like jQuery, Angular, and React have emerged that enable us to do so much more, and do it quickly with Javascript.
 
-> Before we start in JS, I want to mention that during the 12 week Web Developmment Immersive JS is a primary focus for over half the course. That said, this class is 90 minutes long and we're going to jam as much of it in as possible! We'll skip over some of the more in-depth content and get right to the cool parts!
+> Before we start in JS, I want to mention that during the 12 week Web Developmment Immersive, JavaScript is a primary focus for over half the course. That said, this class is 90 minutes long and we're going to jam as much of it in as possible! We'll skip over some of the more in-depth content and get right to the cool parts!
 
 ## LES DO EET
 
-The first thing I'd like to do is go ahead and create the folder we'll be working in. Go to your finder and create a new folder.
+[Download this zip file](https://github.com/ga-dc/uxdi-JS-JQ/archive/master.zip)
+
 
 Let's open up that folder in atom now. We can do this by opening atom then clicking on `File` then `Open`
-
-Let's create two new files by clicking on `File` then `New File`. Save each of these files. The two file names should be `index.html` and `script.js`
-
-Fill the `index.html` with this content:
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Document</title>
-</head>
-<body>
-  <h1>Intro to JS/JQ!</h1>
-  <main>
-    <h2>Below is a p tag!</p>
-    <p class="description">In this webpage we'll be testing out JS and JQ!</p>
-    <button>Click Me!!</button>
-  </main>
-  <script src="script.js"></script>
-</body>
-</html>
-```
 
 > This HTML contains just a bit of content that we'll be leveraging later in this class.
 
@@ -106,7 +89,7 @@ var number = 5 + 5
 
 We might not know what this code is doing at the moment. But for now, let's open the `index.html` file in chrome! If you don't have chrome you'll have to use safari which will have slightly different developer tools.
 
-Next, let's open the developer tools by hitting CMD + OPT + I. If we then click on console, we can the words `hello world`
+Next, let's open the developer tools by hitting CMD + OPT + j. You should see the words `hello world`
 
 - The "Console" is a REPL
   - “Read-Eval-Print Loop”.
@@ -175,11 +158,12 @@ Then type an age into the dialog box. Let's see what happens when we type in `ag
 
 > One thing to note, we'll be using the REPL for alot of this stuff, but know that anything we run in the REPL can be written in our script file and will execute on load of the page!
 
-Great, now that we know the basics, let's do some much cooler things! In order to do these things, let's use the jQuery library. Put this code above the existing script tag in your HTML, that part of your HTML should look something like this:
+Great, now that we know the basics, let's do some much cooler things! In order to do these things, let's use the [jQuery](https://jquery.com/) library. Put this code above the existing script tag in your HTML, that part of your HTML should look something like this:
 
 ```html
 <script src="https://code.jquery.com/jquery-2.2.2.min.js"></script>
 <script src="script.js"></script>
+<!-- order here is important -->
 ```
 
 > This loads the jQuery library before our script files. Note: All the things we're about to do with jQuery can be done in just plain 'ol JS, but jQuery makes it a bit easier. jQuery's motto is "write less, do more"
