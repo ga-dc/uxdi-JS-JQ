@@ -16,7 +16,7 @@
 ## Framing
 In the previous classes we went over HTML and CSS. Content and styling. Is that enough? How can we start to think about how things are happening with interactive web pages. Let's take a look at this browser [game](http://jshawl.com/fsm/) ....
 
-## Think-Pair-Share: Identify Javascript features in Super Mario
+## Think-Pair-Share: Identify Javascript features in [Super Mario](http://jshawl.com/fsm/)
 * 3 minutes: Go look at it. Play with it. Think about what's allowing these behaviors to exist.
 * 3 minutes: Discuss and compare findings in pairs.
 * Think about what functionality the site has after it has loaded.
